@@ -107,18 +107,39 @@ namespace Calc
 
         internal void NewPress(object sender, EventArgs e)
         {
-            Button b = (Button)sender;
+            MessageBox.Show(e.ToString());
 
-            if (operation == '0')
+            if (e is KeyPressEventArgs)
             {
-                firstElement = firstElement + b.Text;
-                OnElementChanged(firstElement);
+                KeyPressEventArgs kp = (KeyPressEventArgs)e;
+                if (operation == '0')
+                {
+                    firstElement = firstElement + kp.KeyChar;
+                    OnElementChanged(firstElement);
+                }
+                else
+                {
+                    secondElement = secondElement + kp.KeyChar;
+                    OnElementChanged(secondElement);
+                }
             }
             else
             {
-                secondElement = secondElement + b.Text;
-                OnElementChanged(secondElement);
+                Button b = (Button)sender;
+                if (operation == '0')
+                {
+                    firstElement = firstElement + b.Text;
+                    OnElementChanged(firstElement);
+                }
+                else
+                {
+                    secondElement = secondElement + b.Text;
+                    OnElementChanged(secondElement);
+                }
             }
+ 
+
+            
             
         }
 

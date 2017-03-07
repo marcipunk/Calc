@@ -20,6 +20,7 @@ namespace Calc
             NumberFormatInfo nfi = new CultureInfo("hu-HU", false).NumberFormat;
 
             Memory calcMemory = new Memory();
+            this.KeyPress += calcMemory.NewPress;
             button1.Click += calcMemory.NewPress;
             button2.Click += calcMemory.NewPress;
             button3.Click += calcMemory.NewPress;
@@ -50,6 +51,11 @@ namespace Calc
         {
             
             
+        }
+
+        private void CalcForm_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            MessageBox.Show(e.KeyChar.ToString());
         }
     }
 }

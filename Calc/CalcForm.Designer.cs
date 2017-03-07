@@ -181,6 +181,8 @@
             // 
             // displayBox
             // 
+            this.displayBox.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.displayBox.Enabled = false;
             this.displayBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.displayBox.Location = new System.Drawing.Point(12, 13);
             this.displayBox.Multiline = true;
@@ -232,6 +234,7 @@
             this.Name = "CalcForm";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.Text = "SillyCalculator";
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CalcForm_KeyPress);
             this.ResumeLayout(false);
             this.PerformLayout();
 
